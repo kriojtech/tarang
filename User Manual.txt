@@ -1,0 +1,141 @@
+User Manual
+Welcome
+
+Thank you for choosing Tarang Smart RF Finder.
+
+Tarang is a wireless item-finding device designed to help you quickly locate important belongings such as keys, wallets, bags, remote controls, or other personal items. With a simple press of a button on the transmitter, the paired receiver emits a loud beep and flashes an LED, making it easy to find misplaced items.
+
+Package Contents
+1 × RF Transmitter (Remote)
+2 × RF Receivers
+USB Type-C Charging Cable
+User Manual
+Product Features
+Wireless RF technology
+Long operating range
+Loud buzzer
+Bright LED indication
+Rechargeable battery
+USB Type-C charging
+Compact and lightweight
+Easy one-button operation
+Charging the Receiver
+Connect the receiver to a USB Type-C charger.
+The charging indicator turns Red while charging.
+The indicator turns Blue when fully charged.
+Disconnect the charger after charging is complete.
+First-Time Use
+Fully charge the receiver.
+Switch ON the receiver.
+Keep the transmitter within operating range.
+Press the corresponding button on the transmitter.
+The receiver will flash and beep.
+Normal Operation
+To Locate an Item
+Press the assigned button on the transmitter.
+The paired receiver starts:
+Flashing LED
+Loud buzzer
+Follow the sound to locate your item.
+Press the receiver button (if provided) or wait for the alarm to stop automatically.
+Battery Status
+
+A low battery may result in:
+
+Reduced operating range
+Lower buzzer volume
+Dim LED brightness
+
+Recharge the receiver when these symptoms appear.
+
+Charging Tips
+Use a standard 5 V USB charger.
+Avoid overcharging for extended periods.
+Recharge before long-term storage.
+Safety Instructions
+Do not immerse in water.
+Do not expose to excessive heat.
+Keep away from children under three years.
+Do not attempt to open the battery.
+Use only a suitable USB charger.
+Troubleshooting
+Receiver does not beep
+
+Possible causes:
+
+Battery discharged
+Receiver switched OFF
+Out of operating range
+
+Solution:
+
+Recharge the receiver.
+Switch it ON.
+Move closer to the transmitter.
+LED does not blink
+
+Possible causes:
+
+Battery low
+Receiver OFF
+
+Solution:
+
+Recharge and restart the receiver.
+Short operating range
+
+Possible causes:
+
+Low battery
+Metal obstacles
+Strong RF interference
+
+Solution:
+
+Recharge the battery.
+Reduce obstructions.
+Move away from interference sources.
+Care and Maintenance
+Keep the device clean and dry.
+Store in a cool place.
+Recharge every few months if not used regularly.
+Technical Specifications
+Wireless Technology: 433 MHz RF
+Charging Port: USB Type-C
+Rechargeable Battery
+Audible Alarm: High-volume buzzer
+Visual Alert: High-brightness LED
+Indoor Operating Range: Up to approximately 30–50 m*
+Outdoor Operating Range: Up to approximately 80–100 m*
+
+*Actual range depends on walls, obstacles, and interference.
+
+Warranty
+
+Please retain your purchase invoice for warranty service.
+
+The warranty does not cover:
+
+Physical damage
+Water damage
+Unauthorized repairs
+Improper charging or misuse
+Support
+
+For assistance, firmware updates, or product information, please contact:
+
+Marvinno Technologies India Pvt. Ltd.
+
+Website: (Add your website)
+
+Email: (Add your support email)
+
+Phone: (Add your support number)
+
+Audio Guide Version (for QR Code)
+
+This is the shorter narration that can be read aloud when a user scans the QR code:
+
+Welcome to the Tarang Smart RF Finder guide. To use Tarang, first charge the receiver using the USB Type-C port until the charging indicator shows full. Switch on the receiver and attach it to the item you want to locate. When the item is misplaced, press the corresponding button on the transmitter. The receiver will flash its LED and sound a loud buzzer. Follow the sound to locate your item. If the receiver does not respond, ensure it is switched on, charged, and within operating range. Thank you for choosing Tarang.
+
+This short version is ideal for your QR-based TTS system, while the full manual can be available on the same webpage for users who want more detailed instructions.
