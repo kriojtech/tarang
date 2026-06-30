@@ -1,76 +1,144 @@
-function speakText(text) {
+// ----------------------------
+// TARANG Voice Assistant V2
+// ----------------------------
+
+const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+const recognition = new SpeechRecognition();
+
+recognition.lang = "en-US";
+recognition.continuous = false;
+recognition.interimResults = false;
+
+let currentLanguage = "en";
+
+function speak(text, callback = null) {
 
     speechSynthesis.cancel();
 
     const speech = new SpeechSynthesisUtterance(text);
 
-    // Speech settings
-    speech.lang = "en-US";
+    speech.volume = 1;
     speech.rate = 0.9;
     speech.pitch = 1;
-    speech.volume = 1.0;   // Maximum allowed by browser
 
-    // Try to select a female voice
-    const voices = speechSynthesis.getVoices();
+    // Language selection
 
-    let femaleVoice =
-        voices.find(v => v.name.includes("Female")) ||
-        voices.find(v => v.name.includes("Zira")) ||
-        voices.find(v => v.name.includes("Samantha")) ||
-        voices.find(v => v.name.includes("Google US English")) ||
-        voices.find(v => v.name.includes("Microsoft Zira")) ||
-        voices.find(v => v.lang.startsWith("en"));
+    if(currentLanguage=="en")
+        speech.lang="en-US";
 
-    if (femaleVoice) {
-        speech.voice = femaleVoice;
-        console.log("Using voice:", femaleVoice.name);
-    }
+    if(currentLanguage=="hi")
+        speech.lang="hi-IN";
+
+    if(currentLanguage=="pa")
+        speech.lang="pa-IN";
+
+    speech.onend=function(){
+
+        if(callback)
+            callback();
+
+    };
 
     speechSynthesis.speak(speech);
+
 }
 
-// Required because some browsers load voices asynchronously
-speechSynthesis.onvoiceschanged = () => {
-    console.log("Voices loaded");
+
+// Start listening
+
+function listen(){
+
+    recognition.start();
+
+}
+
+
+// Ask language
+
+function askLanguage(){
+
+    currentLanguage="en";
+
+    speak(
+        "Welcome to Tarang Smart R F Finder. " +
+        "Please choose your language. " +
+        "For English say English. " +
+        "Hindi ke liye Hindi kahiye. " +
+        "Punjabi layi Punjabi kaho.",
+        function(){
+
+            listen();
+
+        });
+
+}
+
+recognition.onresult=function(event){
+
+    let command=event.results[0][0].transcript.toLowerCase();
+
+    console.log(command);
+
+    // ---------------- English ----------------
+
+    if(command.includes("english")){
+
+        currentLanguage="en";
+
+        speak(
+        "Welcome to Tarang Smart RF Finder. I am your voice assistant. How may I help you today?"
+        );
+
+        return;
+
+    }
+
+    // ---------------- Hindi ----------------
+
+    if(command.includes("hindi") ||
+       command.includes("हिन्दी")){
+
+        currentLanguage="hi";
+
+        speak(
+        "तरंग स्मार्ट आर एफ फाइंडर में आपका स्वागत है। मैं आपकी वॉइस सहायक हूँ। मैं आपकी कैसे सहायता कर सकती हूँ?"
+        );
+
+        return;
+
+    }
+
+    // ---------------- Punjabi ----------------
+
+    if(command.includes("punjabi") ||
+       command.includes("ਪੰਜਾਬੀ")){
+
+        currentLanguage="pa";
+
+        speak(
+        "ਤਰੰਗ ਸਮਾਰਟ ਆਰ ਐਫ ਫਾਈਂਡਰ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ। ਮੈਂ ਤੁਹਾਡੀ ਵੌਇਸ ਸਹਾਇਕ ਹਾਂ। ਮੈਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦੀ ਹਾਂ?"
+        );
+
+        return;
+
+    }
+
+    speak(
+        "Sorry. I did not understand. Please say English, Hindi or Punjabi.",
+        function(){
+
+            listen();
+
+        });
+
 };
 
-async function loadGuide() {
-    try {
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get("id") || "LAB101";
 
-        const response = await fetch("data.json");
+window.onload=function(){
 
-        if (!response.ok) {
-            throw new Error("Cannot load data.json");
-        }
+    askLanguage();
 
-        const guides = await response.json();
-
-        const guide = guides[id];
-
-        if (!guide) {
-            document.getElementById("title").innerText = "Guide Not Found";
-            document.getElementById("content").innerText = "No guide for: " + id;
-            return;
-        }
-
-        document.getElementById("title").innerText = guide.title;
-        document.getElementById("content").innerText = guide.text;
-
-        setTimeout(() => {
-            speakText(guide.text);
-        }, 500);
-
-        document.getElementById("playBtn").onclick = function () {
-            speakText(guide.text);
-        };
-
-    } catch (err) {
-        document.getElementById("title").innerText = "ERROR";
-        document.getElementById("content").innerText = err.message;
-        console.error(err);
-    }
-}
-
-window.onload = loadGuide;
+};
